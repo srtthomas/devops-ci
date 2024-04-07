@@ -5,6 +5,7 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.logging.Logger;
 
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.event.EventListener;
@@ -20,7 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 @CrossOrigin
 @RestController
 public class WeinController {
-
+    Logger logger = Logger.getLogger(getClass().getName());
     private Map<Integer, Wein> wines = new HashMap<Integer, Wein>();
 
     @EventListener(ApplicationReadyEvent.class)
@@ -30,7 +31,7 @@ public class WeinController {
         this.wines.put(3,new Wein(3, "Riesling", "Leicht säuerlicher Weisswein"));
         this.wines.put(4,new Wein(4, "Sicus", "Ein Orange-Wein"));
         this.wines.put(5,new Wein(5, "Fendant", "Geeignet für Fondue"));
-        System.out.println("Init Wine Data");
+        logger.info("Init Wine Data");
     }
 
     @GetMapping("/services/wein")
