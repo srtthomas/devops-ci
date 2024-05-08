@@ -31,4 +31,13 @@ class WeinTest {
         testwein.setId(20);
         assertEquals(20, testwein.getId());
     }
+
+    @Test
+ void testciWein() {
+ var wein = new Wein();
+ wein.setId(42);
+ assertEquals(null, wein.getTitle());
+ assertEquals(null, wein.getDescription());
+ assertEquals(42, wein.getId());
+ }
 }
