@@ -55,4 +55,14 @@ class WeinControllerTest {
         assertNull(shouldBeNull, "The wine should be removed from the map");
     }
 
+
+    @Test
+ void testDelete() {
+ WeinController controller = new WeinController();
+ var wein = new Wein(1, "neuer Wein", "Rose");
+ controller.createWein(1, wein);
+ assertEquals(1, controller.wein().size());
+ controller.deleteWein(1);
+ assertEquals(0, controller.wein().size());
+ }
 }
